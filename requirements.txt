@@ -1,6 +1,6 @@
 langchain
 python-dotenv
-langchain_community
+langchain-community
 ipykernel
 pandas
 pypdf
@@ -8,6 +8,7 @@ bs4
 langchain-text-splitters
 langchain-openai
 chromadb
-
+pymupdf
 sentence_transformers
 langchain_huggingface
+faiss-cpu
