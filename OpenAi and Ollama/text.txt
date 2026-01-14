@@ -3,3 +3,10 @@ export LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 export LANGSMITH_API_KEY=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
 export LANGSMITH_PROJECT="learningproject"
 export OPENAI_API_KEY=<your-openai-api-key>
+
+
+export LANGSMITH_TRACING=true
+export LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+export LANGSMITH_API_KEY=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
+export LANGSMITH_PROJECT="learningproject"
+export OPENAI_API_KEY=<your-openai-api-key>
