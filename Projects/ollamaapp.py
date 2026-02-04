@@ -52,7 +52,8 @@ st.sidebar.header("⚙️ Ollama Model Configuration")
 ollama_model = st.sidebar.selectbox(
     "Choose Ollama Model",
     [
-        "llama3",
+        
+        "gemma:2b",
         "llama3:8b",
         "mistral",
         "mixtral",
