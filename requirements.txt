@@ -22,3 +22,6 @@ langchain_pinecone
 langserve
 streamlit
 langchain-experimental
+
+arxiv
+wikipedia
