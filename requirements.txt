@@ -21,3 +21,4 @@ pinecone[grpc]
 langchain_pinecone
 langserve
 streamlit
+langchain-experimental
