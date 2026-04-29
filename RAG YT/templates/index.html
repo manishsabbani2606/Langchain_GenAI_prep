@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Pipeline - Document Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 RAG Pipeline</h1>
+                <p>Retrieval-Augmented Generation for Document Q&A</p>
+            </div>
+            <div class="status-indicator">
+                <div id="status-dot" class="status-dot"></div>
+                <span id="status-text">Initializing...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel: Document Management -->
+            <aside class="sidebar">
+                <div class="panel">
+                    <h2>📄 Documents</h2>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54h2.96v2.04h4v-2.04h2.96l-2.75-3.54zM9 5h6v2H9z"/>
+                        </svg>
+                        <h3>Upload Documents</h3>
+                        <p>Drag and drop .txt files here or click to browse</p>
+                        <input type="file" id="fileInput" multiple accept=".txt" hidden>
+                    </div>
+
+                    <div class="file-list">
+                        <h3>Status</h3>
+                        <div class="status-box">
+                            <p><strong>Documents:</strong> <span id="docCount">0</span></p>
+                            <p id="systemStatus">No documents loaded</p>
+                        </div>
+                    </div>
+
+                    <button id="clearBtn" class="btn btn-danger btn-block">Clear All</button>
+                </div>
+            </aside>
+
+            <!-- Center Panel: Q&A -->
+            <section class="main-panel">
+                <div class="panel qa-panel">
+                    <h2>❓ Ask Questions</h2>
+                    
+                    <div class="chat-container" id="chatContainer">
+                        <div class="welcome-message">
+                            <h3>Welcome to RAG Pipeline</h3>
+                            <p>Upload documents to get started, then ask questions about them.</p>
+                            <p class="hint">The system will retrieve relevant documents and generate accurate answers.</p>
+                        </div>
+                    </div>
+
+                    <div class="input-area">
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="queryInput" 
+                                placeholder="Ask a question about your documents..."
+                                disabled
+                            >
+                            <button id="sendBtn" class="btn btn-primary" disabled>
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.6563168,11.6889879 L4.13399899,1.16346272 C3.34915502,0.9 2.40734225,0.9 1.77946707,1.4130123 C0.994623095,2.0788295 0.837654326,3.16346272 1.15159189,3.94894966 L3.03521743,10.5127276 C3.03521743,10.6698249 3.19218622,10.8269223 3.50612381,10.8269223 L16.6915026,11.6124092 C16.6915026,11.6124092 17.1624089,11.6124092 17.1624089,12.0836236 C17.1624089,12.5548381 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+                                </svg>
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Indicator -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
